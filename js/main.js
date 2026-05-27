@@ -406,6 +406,7 @@ if (isMobile) {
     $('#modal-year').text(year);
     $('#modal-stack').text(stack);
     $('#modal-live').attr('href', live);
+    $('#modal-preview').attr('src', live);
     $('#modal-github').attr('href', gh);
 
     const chipsHtml = tags.map(t => `<span class="modal-chip">${$.trim(t)}</span>`).join('');
@@ -416,11 +417,14 @@ if (isMobile) {
   }
 
   function closeModal() {
+
     $('#proj-modal').removeClass('open');
-    $('body').css({
-      overflow: 'hidden',
-      height: '100vh'
-    });
+  
+    $('body').css('overflow', '');
+  
+    // Stop iframe when modal closes
+    $('#modal-preview').attr('src', '');
+  
   }
 
   $(document).on('click', '.project-card', function() { openModal(this); });

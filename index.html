@@ -321,6 +321,48 @@ border-radius: 10px;
 }
 
 }
+/* =========================
+   Live Preview
+========================= */
+
+.modal-preview-wrap {
+
+width: 100%;
+
+margin-top: 24px;
+
+border-radius: 20px;
+
+overflow: hidden;
+
+border: 1px solid rgba(255,255,255,.08);
+
+background: #0a0a0a;
+}
+
+/* iframe */
+
+#modal-preview {
+
+width: 100%;
+
+height: 600px;
+
+border: none;
+
+background: #fff;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+#modal-preview {
+
+  height: 420px;
+}
+
+}
 </style>
 <body>
 
@@ -435,7 +477,7 @@ border-radius: 10px;
         </div>
       </div>
 
-      <div class="project-card" data-title="Izy Essensials E-commerce Project" data-img="images/izy.png" data-tags="E-commerce , Laravel" data-desc="A modern eCommerce platform designed for Izy Essentials, specializing in premium beard care and hair care products. Features include product showcase and management, secure online ordering, customer accounts, inventory tracking, discount and coupon systems, responsive mobile-first design, integrated payment solutions, and a seamless shopping experience tailored for grooming and self-care enthusiasts." data-role="Full Stack Developer" data-year="2024" data-stack="Laravel · MSQL · PHP · API" data-live="https://izyessensials.com" data-github="#">
+      <div class="project-card" data-title="Izy Essensials E-commerce Project" data-img="images/izy.png" data-tags="E-commerce , Laravel" data-desc="A modern eCommerce platform designed for Izy Essentials, specializing in premium beard care and hair care products. Features include product showcase and management, secure online ordering, customer accounts, inventory tracking, discount and coupon systems, responsive mobile-first design, integrated payment solutions, and a seamless shopping experience tailored for grooming and self-care enthusiasts." data-role="Full Stack Developer" data-year="2024" data-stack="Laravel · MSQL · PHP · API" data-live="https://izyessentials.com/" data-github="#">
         <img src="images/izy.png" alt="">
         <div class="project-overlay">
           <div class="project-tag">E-commerce , Laravel</div>
@@ -444,7 +486,7 @@ border-radius: 10px;
         </div>
       </div>
 
-      <div class="project-card" data-title="Online Market Place" data-img="images/tt.png" data-tags="E-Commerce, SaaS Platform · Mlti-vendor System" data-desc="A powerful multi-vendor eCommerce platform built to support seamless online buying and selling experiences. Features include vendor store management, product and inventory management, secure payment integration, order and shipment tracking, customer management, role-based admin controls, coupon and discount systems, analytics dashboard, and a scalable service marketplace designed for both vendors and customers." data-role="UX Designer & Full-stack Developer" data-year="2024" data-stack="Laravel · PHP · MYSQL · API" data-live="https://lazimart.com" data-github="#">
+      <div class="project-card" data-title="Online Market Place" data-img="images/tt.png" data-tags="E-Commerce, SaaS Platform · Mlti-vendor System" data-desc="A powerful multi-vendor eCommerce platform built to support seamless online buying and selling experiences. Features include vendor store management, product and inventory management, secure payment integration, order and shipment tracking, customer management, role-based admin controls, coupon and discount systems, analytics dashboard, and a scalable service marketplace designed for both vendors and customers." data-role="UX Designer & Full-stack Developer" data-year="2024" data-stack="Laravel · PHP · MYSQL · API" data-live="https://laziomart.com" data-github="#">
         <img src="images/tt.png" alt="">
         <div class="project-overlay">
           <div class="project-tag">SaaS Platform · Mlti-vendor System </div>
@@ -453,7 +495,7 @@ border-radius: 10px;
         </div>
       </div>
 
-      <div class="project-card" data-title="Canadian Cleaning Company" data-img="images/aashron.png" data-tags="Web App , React, Express.js" data-desc="A professional cleaning service platform developed for Aashron, a Canadian construction and janitorial cleaning company. Features include service booking and management, residential and commercial cleaning solutions, quote request system, customer management, responsive mobile-friendly design, content management system, service showcase, and streamlined communication tools tailored for reliable and efficient cleaning operations." data-role="Full-stack Developer" data-year="2023" data-stack="React · Express.js · MSQ: ·  API" data-live="#" data-github="#">
+      <div class="project-card" data-title="Canadian Cleaning Company" data-img="images/aashron.png" data-tags="Web App , React, Express.js" data-desc="A professional cleaning service platform developed for Aashron, a Canadian construction and janitorial cleaning company. Features include service booking and management, residential and commercial cleaning solutions, quote request system, customer management, responsive mobile-friendly design, content management system, service showcase, and streamlined communication tools tailored for reliable and efficient cleaning operations." data-role="Full-stack Developer" data-year="2023" data-stack="React · Express.js · MSQ: ·  API" data-live="https://aashron.ca" data-github="#">
         <img src="images/aashron.png" alt="Canadian Cleaning Company Website">
         <div class="project-overlay">
           <div class="project-tag">Web App , React, Express.js</div>
@@ -615,6 +657,16 @@ border-radius: 10px;
   <div class="modal-box">
     <div class="modal-img-wrap">
       <img id="modal-img" class="modal-hero-img" src="" alt="">
+      <div class="modal-preview-wrap">
+
+        <iframe 
+          id="modal-preview"
+          src=""
+          frameborder="0"
+          loading="lazy">
+        </iframe>
+      
+      </div>
       <div class="modal-img-gradient"></div>
       <button class="modal-close-btn" id="modal-close" aria-label="Close">
         <i class="bi bi-x-lg"></i>
