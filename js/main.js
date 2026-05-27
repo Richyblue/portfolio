@@ -80,28 +80,79 @@ $(function() {
     goTo(parseInt($(this).data('section'), 10));
   });
 
-  // Wheel scroll 
-  let lastWheel = 0;
+  // // Wheel scroll 
+  // let lastWheel = 0;
+  // $(window).on('wheel', function(e) {
+  //   const now = Date.now();
+  //   if (now - lastWheel < 800) return;
+  //   lastWheel = now;
+  //   if (e.originalEvent.deltaY > 0) goTo(current + 1);
+  //   else goTo(current - 1);
+  // });
+
   $(window).on('wheel', function(e) {
-    const now = Date.now();
-    if (now - lastWheel < 800) return;
-    lastWheel = now;
-    if (e.originalEvent.deltaY > 0) goTo(current + 1);
-    else goTo(current - 1);
+
+    const activeSection = $('#sec-' + current)[0];
+  
+    const atTop = activeSection.scrollTop === 0;
+  
+    const atBottom =
+      activeSection.scrollHeight - activeSection.scrollTop <= activeSection.clientHeight + 5;
+  
+    if (e.originalEvent.deltaY > 0 && atBottom) {
+      goTo(current + 1);
+    }
+  
+    else if (e.originalEvent.deltaY < 0 && atTop) {
+      goTo(current - 1);
+    }
+  
   });
 
-  // Touch support 
-  let touchStartY = 0;
-  $(document).on('touchstart', function(e) {
-    touchStartY = e.originalEvent.touches[0].clientY;
-  });
-  $(document).on('touchend', function(e) {
-    const diff = touchStartY - e.originalEvent.changedTouches[0].clientY;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) goTo(current + 1);
-      else goTo(current - 1);
-    }
-  });
+  // // Touch support 
+  // let touchStartY = 0;
+  // $(document).on('touchstart', function(e) {
+  //   touchStartY = e.originalEvent.touches[0].clientY;
+  // });
+  // $(document).on('touchend', function(e) {
+  //   const diff = touchStartY - e.originalEvent.changedTouches[0].clientY;
+  //   if (Math.abs(diff) > 100) {
+  //     if (diff > 0) goTo(current + 1);
+  //     else goTo(current - 1);
+  //   }
+  // });
+
+  // 📱 Better Mobile Touch Handling
+let touchStartY = 0;
+
+$(document).on('touchstart', function(e) {
+  touchStartY = e.originalEvent.touches[0].clientY;
+});
+
+$(document).on('touchend', function(e) {
+
+  const touchEndY = e.originalEvent.changedTouches[0].clientY;
+  const diff = touchStartY - touchEndY;
+
+  const activeSection = $('#sec-' + current)[0];
+
+  // 🔥 Allow internal scrolling first
+  const atTop = activeSection.scrollTop === 0;
+
+  const atBottom =
+    activeSection.scrollHeight - activeSection.scrollTop <= activeSection.clientHeight + 5;
+
+  // Swipe Up → Next Section
+  if (diff > 100 && atBottom) {
+    goTo(current + 1);
+  }
+
+  // Swipe Down → Previous Section
+  else if (diff < -100 && atTop) {
+    goTo(current - 1);
+  }
+
+});
 
   // Keyboard 
   $(document).on('keydown', function(e) {
