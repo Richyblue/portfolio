@@ -314,4 +314,44 @@ if (!isMobile) {
 
   }
 
+  // Project Popup Modal 
+  function openModal(card) {
+    const $c = $(card);
+    const title = $c.data('title');
+    const img   = $c.data('img');
+	const tags = String($c.data('tags') || '').split(',');
+    const desc  = $c.data('desc');
+    const role  = $c.data('role');
+    const year  = $c.data('year');
+    const stack = $c.data('stack');
+    const live  = $c.data('live');
+    const gh    = $c.data('github');
+
+    $('#modal-img').attr('src', img);
+    $('#modal-title').text(title);
+    $('#modal-desc').text(desc);
+    $('#modal-role').text(role);
+    $('#modal-year').text(year);
+    $('#modal-stack').text(stack);
+    $('#modal-live').attr('href', live);
+    $('#modal-github').attr('href', gh);
+
+    const chipsHtml = tags.map(t => `<span class="modal-chip">${$.trim(t)}</span>`).join('');
+    $('#modal-chips').html(chipsHtml);
+
+    $('#proj-modal').addClass('open');
+    $('body').css('overflow', 'hidden');
+  }
+
+  function closeModal() {
+    $('#proj-modal').removeClass('open');
+    $('body').css('overflow', '');
+  }
+
+  $(document).on('click', '.project-card', function() { openModal(this); });
+  $('#modal-close, #modal-backdrop').on('click', closeModal);
+  $(document).on('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
 });
