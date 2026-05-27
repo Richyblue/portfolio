@@ -1,0 +1,692 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imoh A Jimmy - full-stack Developer</title>
+
+<!-- Bootstrap 5 -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="css/bootstrap-icons.css">
+<!-- Font Awesome (fallback + extra icons) -->
+<link rel="stylesheet" href="css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- style css -->
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<style>
+  .whatsapp-float{
+
+position:fixed;
+
+width:65px;
+
+height:65px;
+
+bottom:30px;
+
+right:25px;
+
+background:#25D366;
+
+color:#fff;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:34px;
+
+z-index:999999;
+
+box-shadow:0 10px 30px rgba(37,211,102,.35);
+
+transition:.3s;
+
+text-decoration:none !important;
+
+}
+
+
+
+
+
+.whatsapp-float:hover{
+
+transform:translateY(-4px) scale(1.05);
+
+color:#fff;
+
+box-shadow:0 18px 40px rgba(37,211,102,.45);
+
+}
+
+
+
+
+
+.whatsapp-float::before{
+
+content:'';
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+border-radius:50%;
+
+background:rgba(37,211,102,.4);
+
+animation:pulse 2s infinite;
+
+z-index:-1;
+
+}
+
+
+
+
+
+@keyframes pulse{
+
+0%{
+
+    transform:scale(1);
+
+    opacity:1;
+
+}
+
+100%{
+
+    transform:scale(1.6);
+
+    opacity:0;
+
+}
+
+}
+
+</style>
+<body>
+
+<!-- Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Decorative BG -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-bg"></div>
+
+<!-- Top bar -->
+<div id="topbar">
+  <div class="logo-text">IJ.</div>
+  <div class="status-badge">
+    <div class="status-dot"></div>
+    Available for work
+  </div>
+</div>
+
+<!-- Side nav -->
+<nav id="main-nav">
+  <div class="nav-dot active" data-section="0" data-label="Home"></div>
+  <div class="nav-dot" data-section="1" data-label="About"></div>
+  <div class="nav-dot" data-section="2" data-label="Work"></div>
+  <div class="nav-dot" data-section="3" data-label="Skills"></div>
+  <div class="nav-dot" data-section="4" data-label="Services"></div>
+  <div class="nav-dot" data-section="5" data-label="Contact"></div>
+</nav>
+
+<!-- ===== SECTION 0: HOME ===== -->
+<section class="section active" id="sec-0">
+  <div class="section-content home-content">
+    <div class="home-pre">Full-stack Developer</div>
+    <div class="glitch-wrap" data-text="ALEX REEVES">
+      <h1 class="home-name">IMOH AKPAN JIMMY</h1>
+    </div>
+    <p class="home-role">
+      I build innovative web solutions that merge <span>creativity</span> with <span>technology</span> to deliver impactful digital products.
+    </p>
+    <div class="home-cta">
+      <a class="btn-glow" onclick="goTo(2)">View Work</a>
+      <a class="btn-outline-glow" onclick="goTo(5)">Get In Touch</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      scroll
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 1: ABOUT ===== -->
+<section class="section" id="sec-1">
+  <div class="section-content">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-frame">
+          <img src="images/ii.JPG" alt="Portrait">
+        </div>
+        <div class="about-img-deco"></div>
+        <div class="about-badge">
+          <div style="font-size:.9rem;font-weight:700;">5+ Years</div>
+          <div style="color:rgba(255,255,255,.7);">Experience</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Who I Am</div>
+        <div class="about-title">Creative <span class="accent">Mind,</span><br>Precise Code.</div>
+        <p class="about-desc">
+          I specialize in building innovative digital solutions that combine functionality, performance, and exceptional user experience. With a strong focus on modern web technologies and creative problem-solving, I develop products that help businesses and individuals stand out in today’s digital landscape.
+          <br><br>
+          I’m passionate about continuous growth, exploring emerging technologies, and transforming ideas into impactful, real-world solutions through clean and efficient design.
+        </p>
+        <div class="skill-pills">
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">Laravel</span>
+          <span class="skill-pill">Express.js</span>
+          <span class="skill-pill">Figma</span>
+          <span class="skill-pill">AWS</span>
+          <span class="skill-pill">MYSQL</span>
+          <span class="skill-pill">WebGL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: WORK ===== -->
+<section class="section" id="sec-2">
+  <div class="section-content work-wrap">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">Selected Work</div>
+    <div class="projects-grid">
+      <div class="project-card" data-title="Hospital Management System" data-img="images/ft.png" data-tags="Web App · Laravel" data-desc="A comprehensive Hospital Management System designed to streamline healthcare operations and improve patient care. Features include hospital records management, secure patient record tracking for both administrators and patients, HMO management, appointment booking and scheduling, content management system (CMS), medical reporting, staff management, and other essential hospital automation tools — all within a modern, responsive, and user-friendly interface." data-role="Full Stack Developer" data-year="2025" data-stack="React · Figma · TailwindCSS · Recharts · Express.js" data-live="https://firstgracelandhospital.com" data-github="#">
+        <img src="images/ft.png" alt="">
+        <div class="project-overlay">
+          <div class="project-tag">Web App · Laravel</div>
+          <div class="project-name">Hospital Management System</div>
+          <span class="project-link"><i class="bi bi-arrow-up-right"></i> View Details</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-title="Multi-Vendor E-commernce" data-img="images/gn.png" data-tags="Web App,React,Node.js" data-desc="A powerful multi-vendor eCommerce platform built to support seamless online buying and selling experiences. Features include vendor store management, product and inventory management, secure payment integration, order and shipment tracking, customer management, role-based admin controls, coupon and discount systems, analytics dashboard, and a scalable service marketplace designed for both vendors and customers." data-role="Full Stack Developer" data-year="2024" data-stack="React · Node.js · PostgreSQL · Stripe" data-live="#" data-github="#">
+        <img src="images/gn.png" alt="">
+        <div class="project-overlay">
+          <div class="project-tag">Web App · React</div>
+          <div class="project-name">Multi-Vendor E-commernce SaaS Platform</div>
+          <span class="project-link"><i class="bi bi-arrow-up-right"></i> View Details</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-title="Izy Essensials E-commerce Project" data-img="images/izy.png" data-tags="E-commerce , Laravel" data-desc="A modern eCommerce platform designed for Izy Essentials, specializing in premium beard care and hair care products. Features include product showcase and management, secure online ordering, customer accounts, inventory tracking, discount and coupon systems, responsive mobile-first design, integrated payment solutions, and a seamless shopping experience tailored for grooming and self-care enthusiasts." data-role="Full Stack Developer" data-year="2024" data-stack="Laravel · MSQL · PHP · API" data-live="https://izyessensials.com" data-github="#">
+        <img src="images/izy.png" alt="">
+        <div class="project-overlay">
+          <div class="project-tag">E-commerce , Laravel</div>
+          <div class="project-name">Izy Essensials E-commerce Project</div>
+          <span class="project-link"><i class="bi bi-arrow-up-right"></i> View Details</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-title="Online Market Place" data-img="images/tt.png" data-tags="E-Commerce, SaaS Platform · Mlti-vendor System" data-desc="A powerful multi-vendor eCommerce platform built to support seamless online buying and selling experiences. Features include vendor store management, product and inventory management, secure payment integration, order and shipment tracking, customer management, role-based admin controls, coupon and discount systems, analytics dashboard, and a scalable service marketplace designed for both vendors and customers." data-role="UX Designer & Full-stack Developer" data-year="2024" data-stack="Laravel · PHP · MYSQL · API" data-live="https://lazimart.com" data-github="#">
+        <img src="images/tt.png" alt="">
+        <div class="project-overlay">
+          <div class="project-tag">SaaS Platform · Mlti-vendor System </div>
+          <div class="project-name">Online Market Place</div>
+          <span class="project-link"><i class="bi bi-arrow-up-right"></i> View Details</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-title="Canadian Cleaning Company" data-img="images/aashron.png" data-tags="Web App , React, Express.js" data-desc="A professional cleaning service platform developed for Aashron, a Canadian construction and janitorial cleaning company. Features include service booking and management, residential and commercial cleaning solutions, quote request system, customer management, responsive mobile-friendly design, content management system, service showcase, and streamlined communication tools tailored for reliable and efficient cleaning operations." data-role="Full-stack Developer" data-year="2023" data-stack="React · Express.js · MSQ: ·  API" data-live="#" data-github="#">
+        <img src="images/aashron.png" alt="Canadian Cleaning Company Website">
+        <div class="project-overlay">
+          <div class="project-tag">Web App , React, Express.js</div>
+          <div class="project-name">Canadian Cleaning Company</div>
+          <span class="project-link"><i class="bi bi-arrow-up-right"></i> View Details</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-title="Hospital CMS Web App" data-img="images/hospital.png" data-tags="CMS, Hospital" data-desc="A comprehensive Hospital Management System designed to streamline healthcare operations and improve patient care. Features include hospital records management, secure patient record tracking for both administrators and patients, HMO management, appointment booking and scheduling, content management system (CMS), medical reporting, staff management, and other essential hospital automation tools — all within a modern, responsive, and user-friendly interface." data-role="Full Stack Designer" data-year="2023" data-stack="Laravel · React · MSQL" data-live="https://firstgracelandhospital.com" data-github="#">
+        <img src="images/hospital.png" alt="">
+        <div class="project-overlay">
+          <div class="project-tag">CMS, Hospital</div>
+          <div class="project-name">Hospital CMS Web App</div>
+          <span class="project-link"><i class="bi bi-arrow-up-right"></i> View Details</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: SKILLS/STATS ===== -->
+<section class="section" id="sec-3">
+  <div class="section-content stats-wrap">
+    <div class="section-label">Numbers</div>
+    <div class="section-title">By the Stats</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num counter" data-target="87">0</div>
+        <div class="stat-label">Projects Done</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num counter" data-target="54">0</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num counter" data-target="12">0</div>
+        <div class="stat-label">Awards Won</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num counter" data-target="5">0</div>
+        <div class="stat-label">Years Active</div>
+      </div>
+    </div>
+    <div class="skills-bars">
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Frontend Development</span><span>95%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>UI / UX Design</span><span>88%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Backend & APIs</span><span>80%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Graphics Design</span><span>72%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: SERVICES ===== -->
+<section class="section" id="sec-4">
+  <div class="section-content services-wrap">
+    <div class="section-label">What I Do</div>
+    <div class="section-title">Services</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">UI/UX Design</div>
+        <div class="service-desc">Strategic design solutions crafted through research, intuitive user experiences, modern wireframing, and visually refined interfaces built to engage users and drive results.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Web Development</div>
+        <div class="service-desc">High-performance web applications built with Laravel, PHP, MySQL, React, and Next.js — featuring scalable architecture, secure API integrations, responsive interfaces, and seamless user experiences optimized for speed and reliability.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <div class="service-name">3D & WebGL</div>
+        <div class="service-desc">Immersive Three.js experiences, product configurators, and interactive 3D storytelling.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Mobile Apps</div>
+        <div class="service-desc">Modern cross-platform applications developed with React Native, Express.js, and Laravel — delivering scalable backend systems, seamless API communication, native-like mobile performance, and engaging user experiences across both iOS and Android platforms.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <div class="service-name">Data Analysis</div>
+        <div class="service-desc">Data-driven analysis and reporting solutions designed to transform complex information into actionable insights through interactive dashboards, performance tracking, business intelligence, data visualization, and strategic decision-making tools.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <div class="service-name">Performance</div>
+        <div class="service-desc">Performance-focused optimization strategies designed to deliver fast, responsive, and highly efficient web experiences through Core Web Vitals improvements, advanced caching, CDN integration, database optimization, and scalable infrastructure tuning.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: CONTACT ===== -->
+<section class="section" id="sec-5">
+  <div class="section-content contact-wrap">
+    <div class="section-label">Let's Talk</div>
+    <div class="section-title">Start a Project</div>
+    <p class="contact-sub">Ready to bring your ideas to life? Whether you have a project in mind, need a creative solution, or simply want to connect, I’m always open to meaningful conversations and exciting collaborations.</p>
+    <a class="contact-email" ><span class="__cf_email__">HELLO@IMOHJIMMY.NAME.NG</span></a>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/xnjroern" method="POST">
+  
+        <div class="cf-row">
+          <input 
+            class="cf-field" 
+            type="text" 
+            name="name"
+            placeholder="Your Name"
+            required
+          >
+      
+          <input 
+            class="cf-field" 
+            type="email" 
+            name="email"
+            placeholder="Email Address"
+            required
+          >
+        </div>
+      
+        <textarea 
+          class="cf-field" 
+          name="message"
+          placeholder="Tell me about your project..."
+          required
+        ></textarea>
+      
+        <button type="submit" class="btn-glow">
+          Send Message <i class="bi bi-send-fill"></i>
+        </button>
+      
+      </form>
+    </div>
+    <div class="socials">
+      <a href="#" class="social-btn" title="GitHub"><i class="bi bi-github"></i></a>
+      <a href="#" class="social-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="#" class="social-btn" title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="social-btn" title="Dribbble"><i class="bi bi-dribbble"></i></a>
+      <a href="#" class="social-btn" title="Behance"><i class="bi bi-behance"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECT POPUP MODAL ===== -->
+<div id="proj-modal" role="dialog" aria-modal="true">
+  <div class="modal-backdrop-blur" id="modal-backdrop"></div>
+  <div class="modal-box">
+    <div class="modal-img-wrap">
+      <img id="modal-img" class="modal-hero-img" src="" alt="">
+      <div class="modal-img-gradient"></div>
+      <button class="modal-close-btn" id="modal-close" aria-label="Close">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="modal-body-wrap">
+      <div class="modal-tags-row" id="modal-chips"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-meta-grid">
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">My Role</span>
+          <span class="modal-meta-val" id="modal-role"></span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Year</span>
+          <span class="modal-meta-val" id="modal-year"></span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Tech Stack</span>
+          <span class="modal-meta-val" id="modal-stack"></span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a id="modal-live" href="#" class="mbtn-primary" target="_blank">
+          <i class="bi bi-box-arrow-up-right"></i> Live Preview
+        </a>
+        <a id="modal-github" href="#" class="mbtn-secondary" target="_blank">
+          <i class="bi bi-github"></i> View Code
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="#"
+   class="whatsapp-float"
+   data-bs-toggle="modal"
+   data-bs-target="#whatsappModal">
+
+    <i class="fab fa-whatsapp"></i>
+
+</a>
+
+
+
+
+
+<!-- WHATSAPP MODAL -->
+<div class="modal fade"
+     id="whatsappModal"
+     tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content border-0 rounded-lg overflow-hidden">
+
+            <!-- HEADER -->
+            <div class="modal-header bg-success text-white border-0" >
+
+                <div>
+
+                    <h4 class="mb-1 text-white">
+
+                        WhatsApp Chat
+
+                    </h4>
+
+                    <small>
+
+                        Imoh Akpan Jimmy (Web Developer)
+
+                    </small>
+
+                </div>
+
+
+
+
+
+                <button type="button"
+                        class="close text-white"
+                        data-bs-dismiss="modal">
+
+                    <span>&times;</span>
+
+                </button>
+
+            </div>
+
+
+
+
+
+            <!-- BODY -->
+            <div class="modal-body p-4">
+
+                <div class="form-group ">
+
+                    <label>
+
+                        Full Name
+
+                    </label>
+
+
+
+
+
+                    <input type="text"
+                           id="wa_name"
+
+                           class="form-control cf-field"
+
+                           placeholder="Enter your name">
+
+                </div>
+
+
+
+
+
+                <div class="form-group">
+
+                    <label>
+
+                        Phone Number
+
+                    </label>
+
+
+
+
+
+                    <input type="text"
+                           id="wa_phone"
+
+                           class="form-control cf-field"
+
+                           placeholder="Enter phone number">
+
+                </div>
+
+
+
+
+
+                <div class="form-group">
+
+                    <label>
+
+                        Message
+
+                    </label>
+
+
+
+
+
+                    <textarea id="wa_message"
+                              class="form-control cf-field"
+                              rows="5"
+
+                              placeholder="Type your message"></textarea>
+
+                </div>
+
+
+
+
+
+                <button type="button"
+                        onclick="sendWhatsApp()"
+
+                        class="btn btn-success btn-block rounded-pill mt-2">
+
+                    <i class="fab fa-whatsapp mr-2"></i>
+
+                    Continue To WhatsApp
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<!-- jQuery -->
+<script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- GSAP -->
+<script src="js/gsap.min.js"></script>
+
+<script>
+
+</script>
+<!-- jQuery -->
+<script src="js/jquery-3.7.1.min_1.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="js/bootstrap.bundle.min_1.js"></script>
+<!-- GSAP -->
+<script src="js/gsap.min_1.js"></script>
+<!-- main js -->
+<script src="js/main.js"></script>
+
+
+<script>
+
+  function sendWhatsApp(){
+  
+      let name =
+  
+          document.getElementById('wa_name').value;
+  
+  
+  
+  
+  
+      let phone =
+  
+          document.getElementById('wa_phone').value;
+  
+  
+  
+  
+  
+      let message =
+  
+          document.getElementById('wa_message').value;
+  
+  
+  
+  
+  
+      let text =
+  
+  `Hello Imoh Akpan Jimmy
+  
+  Name: ${name}
+  
+  Phone: ${phone}
+  
+  Message: ${message}`;
+  
+  
+  
+  
+  
+      let whatsappURL =
+  
+  "https://wa.me/2348151122063?text="
+  
+  + encodeURIComponent(text);
+  
+  
+  
+  
+  
+      window.open(
+  
+          whatsappURL,
+  
+          '_blank'
+  
+      );
+  
+  }
+  
+  </script>
+  
+
+</body></html>
