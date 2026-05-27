@@ -290,6 +290,78 @@ if (!isMobile) {
 
   }
 
+  // 📱 Mobile Counter & Skill Animation
+if (isMobile) {
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        // Counter Animation
+        $(entry.target).find('.counter').each(function() {
+
+          const $this = $(this);
+
+          // Prevent repeat animation
+          if ($this.hasClass('animated')) return;
+
+          $this.addClass('animated');
+
+          const target = parseInt($this.data('target'), 10);
+
+          $({ n: 0 }).animate({ n: target }, {
+
+            duration: 1600,
+            easing: 'swing',
+
+            step: function() {
+
+              $this.text(Math.floor(this.n));
+
+            },
+
+            complete: function() {
+
+              $this.text(target);
+
+            }
+
+          });
+
+        });
+
+        // Skill Bars
+        $(entry.target).find('.skill-bar-fill').each(function() {
+
+          const $this = $(this);
+
+          if ($this.hasClass('animated')) return;
+
+          $this.addClass('animated');
+
+          $this.css({
+            width: $this.data('width') + '%',
+            transition: 'width 1.5s ease'
+          });
+
+        });
+
+      }
+
+    });
+
+  }, {
+    threshold: 0.3
+  });
+
+  $('.section').each(function() {
+    observer.observe(this);
+  });
+
+}
+
   // =========================
   // Initial Animations
   // =========================
@@ -345,7 +417,10 @@ if (!isMobile) {
 
   function closeModal() {
     $('#proj-modal').removeClass('open');
-    $('body').css('overflow', '');
+    $('body').css({
+      overflow: 'hidden',
+      height: '100vh'
+    });
   }
 
   $(document).on('click', '.project-card', function() { openModal(this); });
